@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 class video_prcessing():
 	def __init__(self):
 		cap = cv2.VideoCapture(0)
-		i = 0
-		I = i + 1
+
 		
 		while(True):
 			ret, frame = cap.read()
@@ -22,13 +21,11 @@ class video_prcessing():
 
 
 			img,contours,hierarchy = cv2.findContours(mask1,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
+
+
+			cnt = contours[0]
+			cv2.drawContours(img,cnt,-1,100,3)
 			
-			if i == I * 10:
-
-				cnt = contours[0]
-				cv2.drawContours(img,cnt,-1,100,3)
-				I = I + 1
-
 			#M = cv2.moments(cnt)
 			#print M
 
@@ -46,7 +43,7 @@ class video_prcessing():
 
 			cv2.imshow('frame',img)
 			#cv2.imshow('frame',canny)
-			i = i + 1
+
 			if cv2.waitKey(1) & 0xFF == ord('q'):
 				break
 
