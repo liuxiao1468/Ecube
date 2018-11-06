@@ -14,33 +14,28 @@ class video_prcessing():
 			clahe = cv2.createCLAHE(clipLimit=1.8, tileGridSize=(3,3))
 			cl = clahe.apply(gray)
 			blur = cv2.blur(cl,(6,6))
-			_,mask1 = cv2.threshold(blur,220,255,cv2.THRESH_BINARY)
-			#_,mask1 = cv2.threshold(blur,127,250,0)
+			#_,mask1 = cv2.threshold(blur,220,255,cv2.THRESH_BINARY)
+			blur_inv = cv2.bitwise_not(blur)
+			#blur_inv = 255-blur
+			_,mask2 = cv2.threshold(blur_inv,200,255,cv2.THRESH_BINARY)
+			#_,after_mask2 = cv2.threshold(mask2,200,255,cv2.THRESH_BINARY)
+			#_,mask2 = cv2.threshold(mask1,127,250,0)
 			#canny = cv2.Canny(mask1,300,300)
 
 
-			img,contours,hierarchy = cv2.findContours(mask1,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
+			#img,contours,hierarchy = cv2.findContours(mask1,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
 
 
-			cnt = contours[0]
-			cv2.drawContours(img,cnt,-1,100,3)
+			#cnt = contours[0]
+			#cv2.drawContours(img,contours,-1,100,3)
 			
 			#M = cv2.moments(cnt)
-			#print M
 
-			# corners = cv2.goodFeaturesToTrack(canny, 25, 0.05, 10)
-			# corners = np.float32(corners)
 
-			# for corner in corners:
-   # 				x,y = corner.ravel()
-   # 				cv2.circle(canny,(x,y),3,100,-1)
-
-   			# mask1 = np.float32(mask1)
-   			# dst = cv2.cornerHarris(mask1,blockSize=4,ksize=5,k=0.04)
-   			# dst = cv2.dilate(dst,None)
-   			# mask1[dst > 0.01 * dst.max()] = 50
-
-			cv2.imshow('frame',img)
+			#cv2.imshow('frame1',mask1)
+			cv2.imshow('frame2',blur_inv)
+			#cv2.imshow('frame3',mask2)
+			#cv2.imshow('frame4',blur_inv)
 			#cv2.imshow('frame',canny)
 
 			if cv2.waitKey(1) & 0xFF == ord('q'):
