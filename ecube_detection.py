@@ -3,7 +3,8 @@ import numpy as np
 import os
 
 def detect_ecube_from_webcam():
-    ecube_cascade=cv2.CascadeClassifier('1block.xml')
+    #ecube_cascade=cv2.CascadeClassifier('1block.xml')
+    ecube_cascade=cv2.CascadeClassifier('cascade.xml')
     cap = cv2.VideoCapture(0)
 
         

@@ -62,7 +62,7 @@ class ShapeDetector():
 			#print length
 			#print ratio
 			#print smallest_l
-			print shape
+			#print shape
 
 		
 			
@@ -75,7 +75,7 @@ class ShapeDetector():
 				shape = 'rectangle'
 			else:
 				shape = 'square'
-			print shape
+			#rint shape
 			#ar = w/float(h)
 			#print ('juxing',ar)
 			#shape = 'square' if ar >= 0.8 and ar <= 2.5 else 'rectangle'
@@ -84,7 +84,7 @@ class ShapeDetector():
 			(x,y,w,h) = cv2.boundingRect(approx)
 			length,ratio = self.length_ratio(approx)
 			shape = '5'
-			print shape
+			#print shape
 			#print length
      
 		return shape,x,y,w,h,approx

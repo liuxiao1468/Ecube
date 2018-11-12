@@ -13,8 +13,8 @@ class snapshot():
 		
 		while(True):
 			ret, frame = cap.read()	
-			#cv2.waitKey(400)
-			#print 'hi'
+			#gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+			#print gray
 			cv2.imshow('frame',frame)
 
 			a = cv2.waitKey(1) & 0xFF
