@@ -1,5 +1,5 @@
 # Ecube Project
-# Use the method in computer vision to redevelop sig-block in stead of sensors
+# Use the method in computer vision to re-develop sig-block in stead of sensors
 
 # important files
 1. camera_calibration_img: images with calibration board.
